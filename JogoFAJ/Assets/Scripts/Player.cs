@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public float JumpForce;
     private Rigidbody2D rigi;
     private Animator anim;
+    public bool isJumping;
+    public bool doubleJump;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,12 @@ public class Player : MonoBehaviour
         if(Input.GetAxis("Horizontal") > 0f)
         {
             anim.SetBool("walk", true);
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+        }
+        if (Input.GetAxis("Horizontal") < 0f)
+        {
+            anim.SetBool("walk", true);
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
         }
         if (Input.GetAxis("Horizontal") == 0f)
         {
@@ -41,9 +49,33 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump")  )
         {
-            rigi.AddForce(new Vector2(0f,JumpForce), ForceMode2D.Impulse);
+            if (!isJumping)
+            {
+                rigi.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
+                doubleJump = true;
+                anim.SetBool("jump", true);
+            }
+            
+           
+        }
+    }
+
+     void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 8)
+        {
+            isJumping = false;
+            anim.SetBool("jump", true);
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == 8)
+        {
+            isJumping = true;
         }
     }
 }
