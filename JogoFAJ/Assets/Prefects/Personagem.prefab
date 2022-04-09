@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1900056469570461788}
   - component: {fileID: 1900056469570461789}
-  - component: {fileID: 1900056469570461790}
+  - component: {fileID: 1657132843}
   - component: {fileID: 1900056469570461791}
   - component: {fileID: 1900056469570461787}
   - component: {fileID: 1900056469570461786}
@@ -170,8 +170,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1900056469570461790
-BoxCollider2D:
+--- !u!70 &1657132843
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -183,19 +183,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.2, y: 4.8}
-    newSize: {x: 7.2, y: 4.8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.65, y: 4.05}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.12546158, y: -0.4760671}
+  m_Size: {x: 2.1727357, y: 3.2387793}
+  m_Direction: 0
 --- !u!50 &1900056469570461791
 Rigidbody2D:
   serializedVersion: 4
@@ -229,10 +219,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a787882aee685e44be71a246afaad31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
-  JumpForce: 8
-  isJumping: 0
-  doubleJump: 0
+  speed: 15
+  jumpForce: 14
+  fallGravityScale: 3
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  radius: 0.78
+  offset: {x: 0, y: -0.73, z: 0}
 --- !u!95 &1900056469570461786
 Animator:
   serializedVersion: 3
