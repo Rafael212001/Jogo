@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Coletaveis : MonoBehaviour
 {
+    public int Score;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,8 @@ public class Coletaveis : MonoBehaviour
     {
         if(collider.gameObject.tag == "Player")
         {
+            Pontuacao.instance.pontuacaoTotal += Score;
+            Pontuacao.instance.UpdateText();
             Destroy(gameObject);
         }
     }
