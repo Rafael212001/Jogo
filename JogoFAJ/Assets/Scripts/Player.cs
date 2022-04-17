@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -92,6 +94,27 @@ public class Player : MonoBehaviour
         {
             //playerState.TakeHit();
         }
+        //cerca
+        if (collision.gameObject.tag == "Cerca")
+        {
+            //Debug.Log("Cercaa");
+            Pontuacao.instance.MostrarGameOver();
+            Destroy(gameObject);
+            
+        }
+        //cerca
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Cerca")
+        {
+            //Debug.Log("Cercaa");
+            Pontuacao.instance.MostrarGameOver();
+            Destroy(gameObject);
+
+        }
+        //cerca
     }
 
 
