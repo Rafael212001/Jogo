@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     private bool _isGrounded = false;
 
     // Awake is called when the script instance is being loaded
+    // Renderiza antes do jogo começar
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -60,6 +61,7 @@ public class Player : MonoBehaviour
         _animator.SetBool(GroundedHash, _isGrounded);
     }
 
+    //recomendada quando queremos gerenciar principalmente componentes de física
     private void FixedUpdate()
     {
         _isGrounded = Physics2D.OverlapCircle(this.transform.position + offset,
