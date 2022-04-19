@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Pego do canal Crie Seus jogos https://www.youtube.com/channel/UCXxkw9HWPVXVZsi1oTVvKCQ
+
 public class Coletaveis : MonoBehaviour
 {
     public int Score;

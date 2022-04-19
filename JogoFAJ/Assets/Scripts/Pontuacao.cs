@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+//Alguns pontos pego do canal Crie Seus jogos https://www.youtube.com/channel/UCXxkw9HWPVXVZsi1oTVvKCQ
 
 public class Pontuacao : MonoBehaviour
 {
