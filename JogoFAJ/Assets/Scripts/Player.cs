@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+//codigo feito em sala de aula
 public class Player : MonoBehaviour
 {
     public float speed = 10.0f;
@@ -90,6 +91,8 @@ public class Player : MonoBehaviour
         }
     }
 
+    //Pego de exemplo do canal Crie Seus jogos https://www.youtube.com/channel/UCXxkw9HWPVXVZsi1oTVvKCQ
+    //Link Playlist https://www.youtube.com/watch?v=Vt7VtkWb3R4&list=PLW-9djkTMdfVNJD9aEnoOzkrU8dUoD7j4
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //if (collision.CompareTag("Damage"))
