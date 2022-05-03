@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     private Vector2 _moviment = Vector2.zero;
     private bool _isJumping = false;
     private bool _isGrounded = false;
+    private Vector3 point;
 
     // Awake is called when the script instance is being loaded
     // Renderiza antes do jogo começar
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        point = transform.position;
         //GameManager.Instace.LoadScene("");
     }
 
@@ -107,6 +109,7 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
             
         }
+        
         //cerca
     }
 
@@ -117,8 +120,11 @@ public class Player : MonoBehaviour
             //Debug.Log("Cercaa");
             Pontuacao.instance.MostrarGameOver();
             Destroy(gameObject);
+            
+
 
         }
+        
         //cerca
     }
 
