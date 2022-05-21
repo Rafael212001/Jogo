@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     private bool _isGrounded = false;
     private Vector3 point;
 
+
     // Awake is called when the script instance is being loaded
     // Renderiza antes do jogo começar
     private void Awake()
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
     {
         point = transform.position;
         //GameManager.Instace.LoadScene("");
+
     }
 
     // Update is called once per frame
@@ -105,8 +107,16 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Cerca")
         {
             //Debug.Log("Cercaa");
-            Pontuacao.instance.MostrarGameOver();
-            Destroy(gameObject);
+            if (collision.tag == "Checkpoint")
+            {
+                Pontuacao.instance.MostrarGameOver();
+                transform.position = point;
+            }
+            else
+            {
+               // Pontuacao.instance.MostrarGameOver();
+                //Destroy(gameObject);
+            }
             
         }
         
