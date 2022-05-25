@@ -38,18 +38,20 @@ public class inimigo : MonoBehaviour
         }
     }
 
-    void OnCollisonEnter2D (Collision2D col)
-    {
-        if(col.gameObject.tag == "Player")
-        {
-            float height = col.contacts[0].point.y - headcol.position.y;
+    
 
-            if(height > 0)
-            {
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+          //  float height = col.contacts[0].point.y - headcol.position.y;
+
+           // if (height > 0)
+            
                 col.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 5, ForceMode2D.Impulse);
                 anim.SetTrigger("die");
                 Destroy(gameObject, 1f);
-            }
+            
         }
     }
 }
