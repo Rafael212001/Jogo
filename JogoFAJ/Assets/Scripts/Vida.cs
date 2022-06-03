@@ -4,20 +4,53 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //Sala de aula 
-public class Vida : MonoBehaviour
+[System.Serializable]
+public class Vida 
 {
     // Start is called before the first frame update
 
     public int vidaAtual;
-    public int vidaTotal = 10;
+    public int vidaTotal = 60;
+    public int lives;
     public Image vidaImagem;
+ 
     void Start()
     {
-        vidaAtual = vidaTotal;
+        lives = vidaTotal;
     }
 
     // Update is called once per frame
 
+    public void TakeHit()
+
+    {
+        Debug.Log("Tomou dano");
+        if (vidaAtual > 0)
+        {
+            vidaAtual -= 30;
+            VidaMaxima();
+
+        }
+        else
+        {
+            OnDie();
+        }
+    }
+
+    public void OnDie()
+    {
+        if (lives > 0)
+        {
+            --lives;
+            vidaAtual = vidaTotal;
+            VidaMaxima();
+          
+        }
+        else{
+            Pontuacao.instance.MostrarGameOver();
+            GameObject.Destroy(Pontuacao.instance.gameObject);
+        }
+    }
 
     void Update()
     {
@@ -26,6 +59,8 @@ public class Vida : MonoBehaviour
     private void VidaMaxima()
     {
         vidaImagem.fillAmount = vidaAtual / vidaTotal;
-        //helthSlider.size = vidaAtual / vidaTotal;
+        
     }
+
+   
 }

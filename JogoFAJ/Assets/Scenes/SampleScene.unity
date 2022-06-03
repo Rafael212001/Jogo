@@ -70160,6 +70160,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Personagem
       objectReference: {fileID: 0}
+    - target: {fileID: 1900056469570461787, guid: 6345d8b521a354143890a097651ee131, type: 3}
+      propertyPath: playerState.lives
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1900056469570461787, guid: 6345d8b521a354143890a097651ee131, type: 3}
+      propertyPath: playerState.vidaAtual
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1900056469570461787, guid: 6345d8b521a354143890a097651ee131, type: 3}
+      propertyPath: playerState.vidaImagem
+      value: 
+      objectReference: {fileID: 1975720353}
     - target: {fileID: 1900056469570461788, guid: 6345d8b521a354143890a097651ee131, type: 3}
       propertyPath: m_RootOrder
       value: 1

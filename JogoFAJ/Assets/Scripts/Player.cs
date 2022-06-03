@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     private bool _isJumping = false;
     private bool _isGrounded = false;
     private Vector3 point;
+    public Vida playerState;
 
 
     // Awake is called when the script instance is being loaded
@@ -99,6 +100,10 @@ public class Player : MonoBehaviour
     //Link Playlist https://www.youtube.com/watch?v=Vt7VtkWb3R4&list=PLW-9djkTMdfVNJD9aEnoOzkrU8dUoD7j4
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        /*if (collision.CompareTag("Damage"))
+        {
+            playerState.TakeHit();
+        }*/
         //if (collision.CompareTag("Damage"))
         {
             //playerState.TakeHit();
@@ -137,6 +142,7 @@ public class Player : MonoBehaviour
         
         //cerca
     }
+    
 
 
 
