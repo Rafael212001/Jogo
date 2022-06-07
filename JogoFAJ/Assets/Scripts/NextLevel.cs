@@ -16,5 +16,10 @@ public class NextLevel : MonoBehaviour
         {
             SceneManager.LoadScene(lvlName);
         }
+
+        if(collision.gameObject.tag == "Checkpoint")
+        {
+
+        }
     }
 }

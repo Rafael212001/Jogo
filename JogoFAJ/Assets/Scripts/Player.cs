@@ -24,8 +24,11 @@ public class Player : MonoBehaviour
     private Vector2 _moviment = Vector2.zero;
     private bool _isJumping = false;
     private bool _isGrounded = false;
-    private Vector3 point;
+    public Vector3 point;
+    public GameObject fall;
     public Vida playerState;
+    public static Player instance;
+    public Vector3 checkpoint;
 
 
     // Awake is called when the script instance is being loaded
@@ -42,7 +45,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        point = transform.position;
+
+        checkpoint = transform.position;
         //GameManager.Instace.LoadScene("");
 
     }
@@ -100,28 +104,20 @@ public class Player : MonoBehaviour
     //Link Playlist https://www.youtube.com/watch?v=Vt7VtkWb3R4&list=PLW-9djkTMdfVNJD9aEnoOzkrU8dUoD7j4
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*if (collision.CompareTag("Damage"))
+        if (collision.tag == "Checkpoint")
         {
-            playerState.TakeHit();
-        }*/
-        //if (collision.CompareTag("Damage"))
-        {
-            //playerState.TakeHit();
+            checkpoint = transform.position;
         }
         //cerca
         if (collision.gameObject.tag == "Cerca")
         {
             //Debug.Log("Cercaa");
-            if (collision.tag == "Checkpoint")
-            {
-                Pontuacao.instance.MostrarGameOver();
-                transform.position = point;
-            }
-            else
-            {
-               // Pontuacao.instance.MostrarGameOver();
-                //Destroy(gameObject);
-            }
+            
+            
+            
+               Pontuacao.instance.MostrarGameOver();
+                Destroy(gameObject);
+            
             
         }
         
@@ -133,8 +129,12 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Cerca")
         {
             //Debug.Log("Cercaa");
-            Pontuacao.instance.MostrarGameOver();
-            Destroy(gameObject);
+
+           // point = collision.gameObject.transform.position;
+            //Destroy(collision.gameObject);
+            
+                Pontuacao.instance.MostrarGameOver();
+                Destroy(gameObject);
             
 
 

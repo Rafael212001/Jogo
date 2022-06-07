@@ -13,7 +13,8 @@ public class Vida
     public int vidaTotal = 60;
     public int lives;
     public Image vidaImagem;
- 
+    public static Vida life;
+
     void Start()
     {
         lives = vidaTotal;
@@ -44,6 +45,8 @@ public class Vida
             --lives;
             vidaAtual = vidaTotal;
             VidaMaxima();
+            Player player = GameObject.FindObjectOfType<Player>();
+            player.transform.position = player.checkpoint;
           
         }
         else{
