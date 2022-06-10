@@ -33,8 +33,12 @@ public class Pontuacao : MonoBehaviour
        gameOver.SetActive(true);
     }
 
+   
     public void Recomecar(string lvlName)
     {
         SceneManager.LoadScene(lvlName);
     }
+
+    
+
 }

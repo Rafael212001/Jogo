@@ -8,6 +8,7 @@ TagManager:
   - Checkpoint
   - GM
   - FallDetctor
+  - Cerca2
   layers:
   - Default
   - TransparentFX

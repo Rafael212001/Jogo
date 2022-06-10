@@ -139,7 +139,9 @@ public class Player : MonoBehaviour
 
 
         }
+
         
+
         //cerca
     }
     
